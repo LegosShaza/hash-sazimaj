@@ -1,5 +1,3 @@
-# **User Authentication System v C#**
-
 Tento projekt je hodně jednoduchá aplikace pro správu uživatelů s přihlašováním, správou účtů a administrací. Data uživatelů jsou ukládána do XML souboru.
 
 Funkce aplikace
