@@ -1,46 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace hash_sazimaj
 {
     public partial class Form4 : Form
     {
+        private string username;
         private UserManager userManager = new UserManager();
 
-        public Form4()
+        public Form4(string username)
         {
             InitializeComponent();
-            LoadUsers();
+            this.username = username;
+            textBoxNewUsername.Enabled = username == null;
+            checkBoxIsAdmin.Visible = username == null;
         }
 
-        private void LoadUsers()
+        private void buttonSaveUser_Click(object sender, EventArgs e)
         {
-            listBoxUsers.Items.Clear();
-            foreach (var user in userManager.Users)
+            string newUsername = textBoxNewUsername.Text;
+            string newPassword = textBoxNewPassword.Text;
+            bool isAdmin = checkBoxIsAdmin.Checked;
+
+            if (username == null)
             {
-                listBoxUsers.Items.Add(user.Username);
+                userManager.AddUser(newUsername, newPassword, isAdmin);
             }
-        }
-
-        private void buttonResetPassword_Click(object sender, EventArgs e)
-        {
-            if (listBoxUsers.SelectedItem != null)
+            else
             {
-                string selectedUser = listBoxUsers.SelectedItem.ToString();
-                userManager.ResetPassword(selectedUser, "newpassword");
-                MessageBox.Show("Heslo bylo resetováno na 'newpassword'.");
+                userManager.ResetPassword(username, newPassword);
             }
-        }
-
-        private void buttonBack_Click(object sender, EventArgs e)
-        {
             this.Close();
         }
     }

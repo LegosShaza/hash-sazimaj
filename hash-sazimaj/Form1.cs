@@ -15,12 +15,20 @@ namespace hash_sazimaj
         {
             string username = textBoxUsername.Text;
             string password = textBoxPassword.Text;
-
             User user = userManager.Authenticate(username, password);
+
             if (user != null)
             {
-                Form2 mainForm = new Form2(user);
-                mainForm.Show();
+                if (user.IsAdmin)
+                {
+                    Form3 adminPanel = new Form3();
+                    adminPanel.Show();
+                }
+                else
+                {
+                    Form2 userPanel = new Form2(username);
+                    userPanel.Show();
+                }
                 this.Hide();
             }
             else

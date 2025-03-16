@@ -5,22 +5,58 @@ namespace hash_sazimaj
 {
     public partial class Form3 : Form
     {
-        private User currentUser;
         private UserManager userManager = new UserManager();
 
-        public Form3(User user)
+        public Form3()
         {
             InitializeComponent();
-            currentUser = user;
+            LoadUsers();
         }
 
-        private void buttonSavePassword_Click(object sender, EventArgs e)
+        private void LoadUsers()
         {
-            string newPassword = textBoxNewPassword.Text;
-            currentUser.PasswordHash = User.HashPassword(newPassword);
-            userManager.SaveUsers();
-            MessageBox.Show("Heslo bylo změněno.");
+            listBoxUsers.Items.Clear();
+            foreach (var user in userManager.Users)
+            {
+                listBoxUsers.Items.Add(user.Username);
+            }
+        }
+
+        private void buttonAddUser_Click(object sender, EventArgs e)
+        {
+            Form4 addUserForm = new Form4(null);
+            addUserForm.Show();
+        }
+
+        private void buttonDeleteUser_Click(object sender, EventArgs e)
+        {
+            if (listBoxUsers.SelectedItem != null)
+            {
+                string selectedUser = listBoxUsers.SelectedItem.ToString();
+                userManager.DeleteUser(selectedUser);
+                LoadUsers();
+            }
+        }
+
+        private void buttonResetPassword_Click(object sender, EventArgs e)
+        {
+            if (listBoxUsers.SelectedItem != null)
+            {
+                string selectedUser = listBoxUsers.SelectedItem.ToString();
+                userManager.ResetPassword(selectedUser, "newpassword");
+                MessageBox.Show("Heslo bylo resetováno.");
+            }
+        }
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            Form1 loginForm = new Form1();
+            loginForm.Show();
             this.Close();
+        }
+
+        private void ř(object sender, EventArgs e)
+        {
+
         }
     }
 }

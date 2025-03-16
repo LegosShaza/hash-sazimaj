@@ -28,57 +28,92 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBoxUsers = new System.Windows.Forms.ListBox();
-            this.buttonResetPassword = new System.Windows.Forms.Button();
-            this.buttonBack = new System.Windows.Forms.Button();
+            this.labelNewusername = new System.Windows.Forms.Label();
+            this.textBoxNewUsername = new System.Windows.Forms.TextBox();
+            this.labelNewPassword = new System.Windows.Forms.Label();
+            this.textBoxNewPassword = new System.Windows.Forms.TextBox();
+            this.checkBoxIsAdmin = new System.Windows.Forms.CheckBox();
+            this.buttonSaveUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listBoxUsers
+            // labelNewusername
             // 
-            this.listBoxUsers.FormattingEnabled = true;
-            this.listBoxUsers.Location = new System.Drawing.Point(20, 20);
-            this.listBoxUsers.Name = "listBoxUsers";
-            this.listBoxUsers.Size = new System.Drawing.Size(200, 147);
-            this.listBoxUsers.TabIndex = 0;
+            this.labelNewusername.AutoSize = true;
+            this.labelNewusername.Location = new System.Drawing.Point(20, 20);
+            this.labelNewusername.Name = "labelNewusername";
+            this.labelNewusername.Size = new System.Drawing.Size(123, 13);
+            this.labelNewusername.TabIndex = 0;
+            this.labelNewusername.Text = "Nové uživatelské jméno:";
             // 
-            // buttonResetPassword
+            // textBoxNewUsername
             // 
-            this.buttonResetPassword.Location = new System.Drawing.Point(20, 180);
-            this.buttonResetPassword.Name = "buttonResetPassword";
-            this.buttonResetPassword.Size = new System.Drawing.Size(150, 30);
-            this.buttonResetPassword.TabIndex = 1;
-            this.buttonResetPassword.Text = "Resetovat heslo";
-            this.buttonResetPassword.UseVisualStyleBackColor = true;
-            this.buttonResetPassword.Click += new System.EventHandler(this.buttonResetPassword_Click);
+            this.textBoxNewUsername.Location = new System.Drawing.Point(150, 20);
+            this.textBoxNewUsername.Name = "textBoxNewUsername";
+            this.textBoxNewUsername.Size = new System.Drawing.Size(150, 20);
+            this.textBoxNewUsername.TabIndex = 1;
             // 
-            // buttonBack
+            // labelNewPassword
             // 
-            this.buttonBack.Location = new System.Drawing.Point(180, 180);
-            this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(100, 30);
-            this.buttonBack.TabIndex = 2;
-            this.buttonBack.Text = "Zpět";
-            this.buttonBack.UseVisualStyleBackColor = true;
-            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+            this.labelNewPassword.AutoSize = true;
+            this.labelNewPassword.Location = new System.Drawing.Point(20, 60);
+            this.labelNewPassword.Name = "labelNewPassword";
+            this.labelNewPassword.Size = new System.Drawing.Size(64, 13);
+            this.labelNewPassword.TabIndex = 2;
+            this.labelNewPassword.Text = "Nové heslo:";
+            // 
+            // textBoxNewPassword
+            // 
+            this.textBoxNewPassword.Location = new System.Drawing.Point(150, 60);
+            this.textBoxNewPassword.Name = "textBoxNewPassword";
+            this.textBoxNewPassword.PasswordChar = '*';
+            this.textBoxNewPassword.Size = new System.Drawing.Size(150, 20);
+            this.textBoxNewPassword.TabIndex = 3;
+            // 
+            // checkBoxIsAdmin
+            // 
+            this.checkBoxIsAdmin.AutoSize = true;
+            this.checkBoxIsAdmin.Location = new System.Drawing.Point(150, 90);
+            this.checkBoxIsAdmin.Name = "checkBoxIsAdmin";
+            this.checkBoxIsAdmin.Size = new System.Drawing.Size(68, 17);
+            this.checkBoxIsAdmin.TabIndex = 4;
+            this.checkBoxIsAdmin.Text = "Je admin";
+            this.checkBoxIsAdmin.UseVisualStyleBackColor = true;
+            // 
+            // buttonSaveUser
+            // 
+            this.buttonSaveUser.Location = new System.Drawing.Point(150, 130);
+            this.buttonSaveUser.Name = "buttonSaveUser";
+            this.buttonSaveUser.Size = new System.Drawing.Size(100, 30);
+            this.buttonSaveUser.TabIndex = 5;
+            this.buttonSaveUser.Text = "Uložit";
+            this.buttonSaveUser.UseVisualStyleBackColor = true;
+            this.buttonSaveUser.Click += new System.EventHandler(this.buttonSaveUser_Click);
             // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 261);
-            this.Controls.Add(this.buttonBack);
-            this.Controls.Add(this.buttonResetPassword);
-            this.Controls.Add(this.listBoxUsers);
+            this.ClientSize = new System.Drawing.Size(334, 161);
+            this.Controls.Add(this.buttonSaveUser);
+            this.Controls.Add(this.checkBoxIsAdmin);
+            this.Controls.Add(this.textBoxNewPassword);
+            this.Controls.Add(this.labelNewPassword);
+            this.Controls.Add(this.textBoxNewUsername);
+            this.Controls.Add(this.labelNewusername);
             this.Name = "Form4";
             this.Text = "Form4";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBoxUsers;
-        private System.Windows.Forms.Button buttonResetPassword;
-        private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.Label labelNewusername;
+        private System.Windows.Forms.TextBox textBoxNewUsername;
+        private System.Windows.Forms.Label labelNewPassword;
+        private System.Windows.Forms.TextBox textBoxNewPassword;
+        private System.Windows.Forms.CheckBox checkBoxIsAdmin;
+        private System.Windows.Forms.Button buttonSaveUser;
     }
 }

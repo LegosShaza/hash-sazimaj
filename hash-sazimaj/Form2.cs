@@ -5,31 +5,26 @@ namespace hash_sazimaj
 {
     public partial class Form2 : Form
     {
-        private User currentUser;
+        private string username;
 
-        public Form2(User user)
+        public Form2(string username)
         {
             InitializeComponent();
-            currentUser = user;
-            labelWelcome.Text = $"Vítejte, {user.Username}";
-            buttonManageUsers.Visible = user is Admin;
+            this.username = username;
+            labelWelcome.Text = $"Vítejte, {username}";
         }
 
         private void buttonChangePassword_Click(object sender, EventArgs e)
         {
-            Form3 changePasswordForm = new Form3(currentUser);
-            changePasswordForm.ShowDialog();
-        }
-
-        private void buttonManageUsers_Click(object sender, EventArgs e)
-        {
-            Form4 manageUsersForm = new Form4();
-            manageUsersForm.ShowDialog();
+            Form4 changePasswordForm = new Form4(username);
+            changePasswordForm.Show();
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Form1 loginForm = new Form1();
+            loginForm.Show();
+            this.Close();
         }
     }
 }
